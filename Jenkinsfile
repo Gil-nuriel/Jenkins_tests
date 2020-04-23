@@ -1,19 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage('---start---') {
+        stage('start') {
             steps {
-                sh "echo start pipeline"
+                sh "echo changes detected"
             }
         }
         stage('--test--') {
             steps {
-               sh "echo test pipeline"
+              sh "echo waiting for aprove from the QA"
+              input "pass the test?"
+              
             }
         }
         stage('--deploy--') {
             steps {
-               sh "echo deploy pipeline"
+               sh "echo deploy for production"
             }
         }
     }
