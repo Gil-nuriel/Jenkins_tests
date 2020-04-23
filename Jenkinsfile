@@ -11,7 +11,7 @@ pipeline {
                sh "echo test pipeline"
             }
         }
-        stage('--package--') {
+        stage('--deploy--') {
             steps {
                sh "echo deploy pipeline"
             }
