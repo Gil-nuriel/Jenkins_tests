@@ -9,6 +9,9 @@ pipeline {
         stage('test inside slave machine') {
             agent {label 'slave_2'}
             steps {
+                sh "pwd"
+            }
+            steps {
               sh "javac HellowWorld.java"
               sh "java HellowWorld"
             }
