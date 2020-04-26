@@ -15,6 +15,7 @@ pipeline {
               sh "pwd"
               sh "javac HellowWorld.java"
               sh "java HellowWorld"
+              cleanWs()
             }
         }
         stage('QA test') {
