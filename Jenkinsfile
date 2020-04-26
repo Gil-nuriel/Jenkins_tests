@@ -9,7 +9,7 @@ pipeline {
         stage('test inside slave machine') {
             agent {label 'slave_2'}
             steps {
-              sh 'pwd'
+              sh "pwd"
               
             }
         }
