@@ -1,7 +1,8 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('start') {
+            agent {label 'master'}
             steps {
                 sh "echo changes detected"
             }
@@ -15,6 +16,7 @@ pipeline {
             }
         }
         stage('QA test') {
+            agent {label 'master'}
             steps {
               sh "echo waiting for aprove from the QA"
               input "pass the test?"
@@ -22,6 +24,7 @@ pipeline {
             }
         }
         stage('deploy') {
+             agent {label 'master'}
             steps {
                sh "echo deploy for production"
             }
