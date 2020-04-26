@@ -19,9 +19,10 @@ pipeline {
             }
         }
         stage('test on docker image') {
-            agent {dockerfile true}
-            steps {
-                checkout scm
+            agent {
+                Docker { image 'maven:latest'}
+            }
+            steps {  
             sh "mvn --version"
             }
         }
