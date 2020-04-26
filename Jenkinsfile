@@ -21,6 +21,7 @@ pipeline {
         stage('test on docker image') {
             agent {dockerfile true}
             steps {
+                checkout scm
             sh "mvn --version"
             }
         }
