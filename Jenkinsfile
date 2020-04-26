@@ -1,18 +1,19 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('start') {
             steps {
                 sh "echo changes detected"
             }
         }
-        stage('--test--') {
+        stage('test inside slave machine') {
+            agent {label 'slave_2'}
             steps {
-              sh "pwd"
+              sh 'pwd'
               
             }
         }
-        stage('test inside slave machine') {
+        stage('QA test') {
             steps {
               sh "echo waiting for aprove from the QA"
               input "pass the test?"
