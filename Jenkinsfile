@@ -1,5 +1,6 @@
 pipeline {
     agent none
+    options { skipDefaultCheckout() }
     stages {
         stage('start') {
             agent {label 'master'}
@@ -10,6 +11,7 @@ pipeline {
         stage('test inside slave machine') {
             agent {label 'slave_2'}
             steps {
+              checkout scm
               sh "pwd"
               sh "javac HellowWorld.java"
               sh "java HellowWorld"
