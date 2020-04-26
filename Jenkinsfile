@@ -18,14 +18,6 @@ pipeline {
               cleanWs()
             }
         }
-        stage('test on docker image') {
-            agent {
-                docker { image 'maven:latest'}
-            }
-            steps {  
-            sh "mvn --version"
-            }
-        }
         stage('QA test') {
             agent {label 'master'}
             steps {
