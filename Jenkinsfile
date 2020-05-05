@@ -5,7 +5,9 @@ pipeline {
         stage('start') {
             agent {label 'master'}
             steps {
+                dir('client'){
                 sh "echo changes detected"
+                }
             }
         }
         stage('test inside slave machine') {
