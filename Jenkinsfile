@@ -1,16 +1,13 @@
 pipeline {
     agent none
     options { skipDefaultCheckout() }
-    environment{
-        test = 'test/'
-    }
+   
     stages {
         stage('start') {
             agent {label 'master'}
             steps {
                 dir('client'){
                 sh "echo changes detected"
-                sh test + 'something else'
                 }
             }
         }
